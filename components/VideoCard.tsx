@@ -1,9 +1,10 @@
 import Link from "next/link"
+import Image from 'next/image'
 export default function VideoCard(){
     return (
         <div className="bg-card rounded-xl overflow-hidden">
             <Link href="/watch/kittyvid" className="block" prefetch={false}>
-              <img
+              <Image
                 src="/thumnail.jpg"
                 alt="Thumbnail"
                 width={320}

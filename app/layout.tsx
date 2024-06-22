@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { ThemeProvider } from "@/components/theme-provider"
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar/>
           <div className="mx-10 container flex items-start gap-4 mt-6 ">

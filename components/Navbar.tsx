@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Input } from "./ui/input"
 import UserDropDown from "./UserDropDown"
 import {  PlayIcon } from "@radix-ui/react-icons"
+import Searchbar from "./Searchbar"
 export default function Navbar(){
     return (
         <header className="bg-background border-b px-4 md:px-6 flex items-center h-14 shrink-0 sticky top-0 ">
@@ -11,9 +12,7 @@ export default function Navbar(){
           YouTube
         </Link>
         <div className="flex-1 ml-6 hidden md:block">
-          <form className="max-w-md mx-auto">
-            <Input type="search" placeholder="Search" className="w-full  px-4 py-2 text-sm" />
-          </form>
+          <Searchbar/>
         </div>
         <div className="ml-auto flex items-center gap-4">
           <Button variant="ghost" size="icon" className="rounded-full">

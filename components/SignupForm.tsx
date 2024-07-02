@@ -8,7 +8,7 @@ import { useToast } from "./ui/use-toast"
 import { ID, account } from "@/app/appwrite/appwrite"
 export function SignupForm(){
     const {toast} = useToast()
-    const [signupForm,setSignupForm] = useState({username:"",email: "",password : ""})
+    const [signupForm,setSignupForm] = useState({username:"",email: "",password : "",name: ""})
     const [loading,setLoading] = useState(false)
     return (
         <Card>
@@ -19,9 +19,19 @@ export function SignupForm(){
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
+          <div className="space-y-1">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" placeholder="Pedro Duarte" value={signupForm.name} onChange={(e)=>{
+                setSignupForm(p=>{
+                    return {
+                        ...p,name : e.target.value
+                    }
+                })
+              }} />
+            </div>
             <div className="space-y-1">
               <Label htmlFor="username">username</Label>
-              <Input id="username" placeholder="Pedro Duarte" value={signupForm.username} onChange={(e)=>{
+              <Input id="username" placeholder="pedro123" value={signupForm.username} onChange={(e)=>{
                 setSignupForm(p=>{
                     return {
                         ...p,username : e.target.value
@@ -52,11 +62,11 @@ export function SignupForm(){
           </CardContent>
           <CardFooter>
             <Button disabled = {loading || (
-                signupForm.username ==="" || signupForm.email ==="" || signupForm.password===""
+                signupForm.username ==="" || signupForm.email ==="" || signupForm.password==="" || signupForm.name===""
             )}
             onClick={()=>{
                 setLoading(true)
-                account.create(ID.custom(signupForm.username),signupForm.email,signupForm.password).then(res=>{
+                account.create(ID.custom(signupForm.username),signupForm.email,signupForm.password,signupForm.name).then(res=>{
                     console.log(res)
                     toast({
                         description : "Account Created",

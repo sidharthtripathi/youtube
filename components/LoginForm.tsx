@@ -22,7 +22,7 @@ export function LoginForm(){
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
-              <Label htmlFor="email">Email or Username</Label>
+              <Label htmlFor="email">Email</Label>
               <Input id="email" type="email" placeholder="peduarte@gmail.com" value={loginForm.email} onChange={(e)=>{
                 setLoginForm(p=>{
                     return {

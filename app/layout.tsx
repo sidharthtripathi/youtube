@@ -20,10 +20,7 @@ export default function RootLayout({
       <body >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar/>
-          <div className="mx-10 container flex items-start gap-4 mt-6 ">
-            <Sidebar/>
-            {children}
-          </div>
+          {children}
           <Toaster />
         </ThemeProvider>
         </body>
